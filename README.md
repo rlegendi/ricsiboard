@@ -7,17 +7,12 @@ Some random charts.
 * Get review - Zsolti? KissP?
 * Learn bootstrap -- HAHA!
 
-* Gridstrap-et berantani kintrol vhogy -- miert ad ra CORB-t, amikor a tobbi megy? Azon majd sokat lehetne nyerni
-
 * Infra - Deploy with a click
-* Bug - mozgatas csak az also feluleten megoldott
 
-* Feature - Save layout (charts, orders, lines)
 * Feature - Rightclick -> Add trendlines somehow?
 * Feature - Add chart with button (search tickers)
 
 * Fancy - Favico
-* Infra - Load gristrap from external, versionized source? (CORB? Why others working?) We could save a lot of KBs on S3 :-)))
 
 ## Links
 * https://rosspi.github.io/gridstrap.js/

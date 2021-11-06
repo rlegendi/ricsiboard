@@ -57,7 +57,13 @@
 				  "container_id": containerId
 				}
 			  );
-		}
+			}
+			
+			function shareBoardLink() {
+			  navigator.clipboard.writeText(window.location.href);
+			  
+			  alert("Saved the shareable URL in your clipboard - feel free to share it!");
+			}
 	</script>
   </head>
   <body>
@@ -103,7 +109,7 @@
 			<p class="lead text-muted">Some random stuff below.</p>
 			<p>
 			  <a href="#" class="btn btn-primary my-2">Reload</a>
-			  <a href="#" class="btn btn-secondary my-2">Close</a>
+			  <a class="btn btn-secondary my-2" onclick="shareBoardLink()">Share board link</a>
 			</p>
 		  </div>
 		</div>
