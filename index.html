@@ -25,43 +25,15 @@
       }
     </style>
 	  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-	  <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+	  <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
 	  
+	  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>-->
+	  <!-- <script src="http://code.jquery.com/jquery-3.2.1.js"></script> -->
+	  <!-- 
 	  <link rel="stylesheet" href="res/jquery.gridstrap.min.css"> 
 	  <script src="res/jquery.gridstrap.min.js"></script>
+	-->
 
-	<script type = "text/javascript">
-	function chartOf(ticker, containerId) {
-	new TradingView.MediumWidget(
-  {
-  "symbols": [
-    [
-      ticker
-    ]
-  ],
-  "chartOnly": false,
-  "width": "100%",
-  "height": "400",
-  "locale": "en",
-  "colorTheme": "light",
-  "gridLineColor": "rgba(240, 243, 250, 0)",
-  "fontColor": "#787B86",
-  "isTransparent": false,
-  "autosize": true,
-  "showFloatingTooltip": true,
-  "scalePosition": "right",
-  "scaleMode": "Normal",
-  "fontFamily": "Trebuchet MS, sans-serif",
-  "noTimeScale": false,
-  "chartType": "area",
-  "lineColor": "#2962FF",
-  "bottomColor": "rgba(41, 98, 255, 0)",
-  "topColor": "rgba(41, 98, 255, 0.3)",
-  "container_id": containerId
-}
-  );
-	}
-	</script>
   </head>
   <body>
     
@@ -258,10 +230,77 @@
   </div>
 </footer>
 
+<template id="chart-template">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="tradingview-widget-container">
+			  <div id="view1"></div>
+			  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/${ticker}" rel="noopener" target="_blank"><span class="blue-text">${ticker}</span></a></div>
+			  <script type="text/javascript">
+	new TradingView.MediumWidget(
+  {
+  "symbols": [
+    [
+      "${ticker_full}"
+    ]
+  ],
+  "chartOnly": false,
+  "width": "100%",
+  "height": "400",
+  "locale": "en",
+  "colorTheme": "light",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "fontColor": "#787B86",
+  "isTransparent": false,
+  "autosize": true,
+  "showFloatingTooltip": true,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "Trebuchet MS, sans-serif",
+  "noTimeScale": false,
+  "chartType": "area",
+  "lineColor": "#2962FF",
+  "bottomColor": "rgba(41, 98, 255, 0)",
+  "topColor": "rgba(41, 98, 255, 0.3)",
+  "container_id": view1
+}
+  );
+			  </script>
+			</div>
+          </div>
+        </div>
+</template>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script>
-    $('#ccy-grid').gridstrap();
+	<script>
+    //$('#ccy-grid').gridstrap();
+	const urlSearchParams = new URLSearchParams(window.location.search);
+	const params = Object.fromEntries(urlSearchParams.entries());
+	for (let [key, value] of Object.entries(params)) {
+		console.log(key, value);
+	}
+	
+	    var data = {
+        title: "Constructing HTML Elements"
+    }
+
+	//var templateContent = document.createElement('template').cloneNode(true);
+	
+    var template = $("#tutorial-template").html();
+//var chartTemplate = $("#chart-template").content.cloneNode();
+
+//var templateHtml = $("#chart-template").getInnerHTML().replaceAll("${ticker}", "LSE:GAW|12M");
+var templateHtml = $("#chart-template").html();
+
+templateHtml = templateHtml.replaceAll("${view_id}", "view1");
+templateHtml = templateHtml.replaceAll("${ticker}", "LSE-GAW");
+templateHtml = templateHtml.replaceAll("${ticker_full}", "LSE:GAW|12M");
+
+var div = document.createElement("div");
+div.innerHTML = templateHtml;
+
+
+    $("body").append(div);
 </script>
   </body>
 </html>

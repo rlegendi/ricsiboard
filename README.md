@@ -30,3 +30,7 @@ Some random charts.
       .setLineStyle(0) 
       .setQuantity("221.235 USDT")
     order.setPrice(7000);
+
+-------------------------------------------------------------------
+
+file:///E:/007/work/ws_web/ricsiboard/index.html?CCY=FX_IDC:USDHUF%7C12M,FX_IDC:EURHUF%7C12M,FX_IDC:GBPHUF%7C12M,FX_IDC:CHFHUF%7C12M
