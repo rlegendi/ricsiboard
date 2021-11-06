@@ -23,6 +23,11 @@
       }
     </style>
 	  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+	  <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+	  
+	  <link rel="stylesheet" href="jquery.gridstrap.min.css"> 
+		<script src="jquery.gridstrap.min.js"></script>
+
 
 	<script type = "text/javascript">
 	function chartOf(ticker, containerId) {
@@ -109,7 +114,7 @@
   <div class="album py-1 bg-light">
     <div class="container">
 	  <h1>CCY</h1>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div id="ccy-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
 			<div class="tradingview-widget-container">
@@ -254,6 +259,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script>
+    $('#ccy-grid').gridstrap();
+</script>
   </body>
 </html>
