@@ -4,19 +4,20 @@ Some random charts.
 
 ## TODO
 
-* favico
-* aws deploy
-* get review
-* learn bootstrap -- HAHA!
-* Merge-elni kell ezeket a szar modositasokat
-* Github checkout commit push???
-* Gridstrap-et berantani kintrol vhogy -- miert ad ra CORB-t, amikor a tobbi megy?
+* Get review - Zsolti? KissP?
+* Learn bootstrap -- HAHA!
 
+* Gridstrap-et berantani kintrol vhogy -- miert ad ra CORB-t, amikor a tobbi megy? Azon majd sokat lehetne nyerni
+
+* Infra - Deploy with a click
 * Bug - mozgatas csak az also feluleten megoldott
 
-* Feature - Mentsuk el az elrendezest
-* Feature - Jobbklikk a charton, lehessen trendline-t hozzaadni
-* Feature - Kell egy gomb, h tetszoleges valamit hozzaadunk
+* Feature - Save layout (charts, orders, lines)
+* Feature - Rightclick -> Add trendlines somehow?
+* Feature - Add chart with button (search tickers)
+
+* Fancy - Favico
+* Infra - Load gristrap from external, versionized source? (CORB? Why others working?) We could save a lot of KBs on S3 :-)))
 
 ## Links
 * https://rosspi.github.io/gridstrap.js/
