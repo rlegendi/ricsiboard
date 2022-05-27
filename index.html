@@ -38,6 +38,7 @@
   background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    color: #818181;
 }
 
 /* Position the content inside the overlay */
@@ -138,10 +139,18 @@ function closeNav() {
   <body>
   
 <div id="myNav" class="overlay">
-
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
   <div class="overlay-content">
+	<table id="paramsTable" align="center">
+		<tr>
+			<td>Category</td>
+			<td>Elements</td>
+		</tr>
+	</table>
+	+ Add category
+	
+	<p id="randomp"/>
+
     <a href="#">About</a>
     <a href="#">Services</a>
     <a href="#">Clients</a>
@@ -247,6 +256,21 @@ function closeNav() {
 				chartOf(fullTicker, viewId)
 				id = id + 1;
 			}
+		}
+		
+		for (let [key, values] of Object.entries(params)) {
+			console.log(key, values);
+			
+			var tr = document.createElement("tr");
+			$("#paramsTable").append(tr);
+			
+			var tdCategory = document.createElement("td")
+			tdCategory.innerHTML = key
+			tr.append(tdCategory)
+			
+			var tdValue = document.createElement("td")
+			tdValue.innerHTML = values
+			tr.append(tdValue)
 		}
 		</script>
 	</main>
