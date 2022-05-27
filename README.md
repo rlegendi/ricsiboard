@@ -2,6 +2,10 @@
 
 Some random charts.
 
+# Widget
+
+https://www.tradingview.com/widget/symbol-overview/
+
 ## TODO
 
 * Get review - Zsolti? KissP?
@@ -25,6 +29,7 @@ Some random charts.
       .setLineStyle(0) 
       .setQuantity("221.235 USDT")
     order.setPrice(7000);
+* https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
 
 -------------------------------------------------------------------
 
