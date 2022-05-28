@@ -125,15 +125,74 @@
 			  alert("Saved the shareable URL in your clipboard - feel free to share it!");
 			}
 			
-			/* Open when someone clicks on the span element */
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
+			function addNewCategory(category, symbols) {
+				var tr = document.createElement("tr");
+				$("#paramsTable").append(tr);
+				
+				var tdCategory = document.createElement("td")
+				var categoryTextField = document.createElement("input")
+				categoryTextField.setAttribute("type", "text");
+				categoryTextField.value = category
+				
+				tr.append(tdCategory)
+				tdCategory.append(categoryTextField)
+				
+				var tdValue = document.createElement("td")
+				var symbolsTextField = document.createElement("input")
+				symbolsTextField.setAttribute("type", "text");
+				symbolsTextField.value = symbols
+				symbolsTextField.size = 80
+				tr.append(tdValue)
+				tdValue.append(symbolsTextField)
+				
+				var tdRemove = document.createElement("button")
+				tdRemove.innerHTML  = "-"
+				tr.append(tdRemove)
+				tdRemove.onclick = function() { removeTableLine(tr) }
+			}
+			
+			function addNewEmptyCategory() {
+				addNewCategory("", "")
+			}
+			
+			function removeTableLine(actTr) {
+				const table = document.getElementById("paramsTable");
+				if (2 >= table.rows.length) {
+					return
+				}
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
+				actTr.parentNode.removeChild(actTr)
+			}
+			
+			/* Open when someone clicks on the span element */
+			function openNav() {
+			  document.getElementById("myNav").style.width = "100%";
+			}
+
+			/* Close when someone clicks on the "x" symbol inside the overlay */
+			function closeNav() {
+			  document.getElementById("myNav").style.width = "0%";
+			}
+			
+			function updateUrl() {
+				const table = document.getElementById("paramsTable");
+								
+				var url = window.location.protocol + '//' + window.location.host + window.location.pathname + "?"
+				
+				for (var i = 1, row; row = table.rows[i]; i++) {
+					var name = row.cells[0].firstChild.value
+					var value = row.cells[1].firstChild.value
+					
+					if (i>1) url += "&"
+					url += name + "=" + value
+				}
+				
+				window.location.href = url;
+			}
+			
+			function goToDefaultUrl() {
+				window.location.href = "?CCY=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M&Crypto=COINBASE:BTCUSD|12M,BINANCE:ETHUSDT|12M"
+			}
 	</script>
   </head>
   <body>
@@ -143,18 +202,22 @@ function closeNav() {
   <div class="overlay-content">
 	<table id="paramsTable" align="center">
 		<tr>
-			<td>Category</td>
-			<td>Elements</td>
+			<th>Category Name</th>
+			<th>Symbols</th>
+			<th></th>
 		</tr>
 	</table>
-	+ Add category
+	<button onclick="addNewEmptyCategory()">Add new category</button>
 	
-	<p id="randomp"/>
-
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a href="#" onclick="updateUrl()">Update board with config above</a>
+	<a href="#" onclick="goToDefaultUrl()">Sample Board</a>
+	<a href="https://www.tradingview.com/" target="_blank">Find other symbols</a>
+	
+		<b>Hint</b> As we do NOT store any info about you (yup, no cookies! - now we mention, you recognize there were no "Accept cookies" dialog huh? :D), the dashboard you put together is visible only you. But, to make things convenient: the setup is encoded in the actual link you are watching, so easy to bookmark and share as you wish.</p>
+		
+		<b>Hint</b> To have different default views (daily, monthly, hourly, etc.), add a "|XY" after the symbols, where x is the number of y entries that should be shown by default. I.e., "|12M" means to show the last 12 months for the symbol.</p>
+		
+		<b>Hint</b> If you messed up the table above - not an issue! Simply refresh the page, it'll reset everything to the original values when you previously loaded the page.</p>
   </div>
 
 </div>
@@ -226,7 +289,13 @@ function closeNav() {
 	  
 	  <script>
 		const urlSearchParams = new URLSearchParams(window.location.search);
+				
+		if (!window.location.search) {
+			goToDefaultUrl()
+		}
+		
 		const params = Object.fromEntries(urlSearchParams.entries());
+		
 		var id = 1;
 		for (let [key, values] of Object.entries(params)) {
 			console.log(key, values);
@@ -261,16 +330,7 @@ function closeNav() {
 		for (let [key, values] of Object.entries(params)) {
 			console.log(key, values);
 			
-			var tr = document.createElement("tr");
-			$("#paramsTable").append(tr);
-			
-			var tdCategory = document.createElement("td")
-			tdCategory.innerHTML = key
-			tr.append(tdCategory)
-			
-			var tdValue = document.createElement("td")
-			tdValue.innerHTML = values
-			tr.append(tdValue)
+			addNewCategory(key, values)
 		}
 		</script>
 	</main>
