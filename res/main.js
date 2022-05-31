@@ -105,11 +105,18 @@ function updateUrl() {
 
     let url = window.location.protocol + '//' + window.location.host + window.location.pathname + "?"
 
+    let first = true;
     for (let i = 1, row; row = table.rows[i]; i++) {
         const name = row.cells[1].firstChild.value
         const value = row.cells[2].firstChild.value
 
-        if (i > 1) url += "&"
+        if (!name || !value || name === "fbclid") {
+            continue
+        }
+
+        if (first) first = false
+        else url += "&"
+
         url += name + "=" + value
     }
 

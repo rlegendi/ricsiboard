@@ -43,6 +43,11 @@
     transition: 0.3s;
 }
 
+.overlay a.sub {
+    font-size: 28px;
+    display: inline-block;
+}
+
 .overlay a:hover,
 .overlay a:focus {
     color: #f1f1f1;
