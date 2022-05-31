@@ -129,6 +129,19 @@
 				var tr = document.createElement("tr");
 				$("#paramsTable").append(tr);
 				
+				var tdMove = document.createElement("td")
+				var tdUpButton = document.createElement("button")
+				tdUpButton.innerHTML  = "&#11165;"
+				tdMove.append(tdUpButton)
+				tdUpButton.onclick = function() { moveUp(tr) }
+				
+				var tdDownButton = document.createElement("button")
+				tdDownButton.innerHTML  = "&#11167;"
+				tdMove.append(tdDownButton)
+				tdDownButton.onclick = function() { moveDown(tr) }
+				
+				tr.append(tdMove)
+				
 				var tdCategory = document.createElement("td")
 				var categoryTextField = document.createElement("input")
 				categoryTextField.setAttribute("type", "text");
@@ -146,7 +159,7 @@
 				tdValue.append(symbolsTextField)
 				
 				var tdRemove = document.createElement("button")
-				tdRemove.innerHTML  = "-"
+				tdRemove.innerHTML  = "x"
 				tr.append(tdRemove)
 				tdRemove.onclick = function() { removeTableLine(tr) }
 			}
@@ -180,8 +193,8 @@
 				var url = window.location.protocol + '//' + window.location.host + window.location.pathname + "?"
 				
 				for (var i = 1, row; row = table.rows[i]; i++) {
-					var name = row.cells[0].firstChild.value
-					var value = row.cells[1].firstChild.value
+					var name = row.cells[1].firstChild.value
+					var value = row.cells[2].firstChild.value
 					
 					if (i>1) url += "&"
 					url += name + "=" + value
@@ -191,7 +204,31 @@
 			}
 			
 			function goToDefaultUrl() {
-				window.location.href = "?CCY=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M&Crypto=COINBASE:BTCUSD|12M,BINANCE:ETHUSDT|12M"
+				window.location.href = "?CCY Majors=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M&CCY Minors=FX_IDC:GBPHUF|12M,FX_IDC:CHFHUF|12M,FX_IDC:PLNHUF|12M&Crypto=COINBASE:BTCUSD|12M,BINANCE:ETHUSDT|12M&Stocks=NYSE:EPAM|12M,NASDAQ:FB|12M"
+			}
+			
+			function moveUp(actTr) {
+				var parent = actTr.parentNode
+				var prev = actTr.previousElementSibling
+				
+				if (!prev.previousElementSibling) {
+					return
+				}
+				
+				parent.removeChild(actTr)
+				parent.insertBefore(actTr, prev)
+			}
+			
+			function moveDown(actTr) {
+				var parent = actTr.parentNode
+				var next = actTr.nextSibling
+				
+				if (!next) {
+					return
+				}
+				
+				parent.removeChild(actTr)
+				parent.insertBefore(actTr, next.nextSibling)
 			}
 	</script>
   </head>
@@ -202,6 +239,7 @@
   <div class="overlay-content">
 	<table id="paramsTable" align="center">
 		<tr>
+			<th></th>
 			<th>Category Name</th>
 			<th>Symbols</th>
 			<th></th>
