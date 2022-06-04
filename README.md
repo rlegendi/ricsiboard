@@ -2,10 +2,6 @@
 
 Some random charts.
 
-# Widget
-
-https://www.tradingview.com/widget/symbol-overview/
-
 ## TODO
 
 * License
@@ -39,3 +35,8 @@ https://www.tradingview.com/widget/symbol-overview/
 file:///E:/007/work/ws_web/ricsiboard/index.html?CCY=FX_IDC:USDHUF%7C12M,FX_IDC:EURHUF%7C12M,FX_IDC:GBPHUF%7C12M,FX_IDC:CHFHUF%7C12M
 
 file:///E:/007/work/ws_web/ricsiboard/index.html?CCY=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M&Crypto=COINBASE:BTCUSD|12M&Crypto1=BINANCE:ETHUSDT|12M
+
+Base temlate
+- Minors? Majors? hu/xxx
+- Hu? OTP Richter
+- Tech?
