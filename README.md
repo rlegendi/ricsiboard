@@ -1,6 +1,8 @@
 # ricsiboard
 
-Some random charts.
+Your personalized trading dashboard for the morning coffee :-)
+
+Live at: https://ricsiboard.com
 
 ## TODO
 
@@ -9,11 +11,12 @@ Some random charts.
 * Get review - Zsolti? KissP?
 * Learn bootstrap -- HAHA!
 
+### Later maybe
 * Feature - Rightclick -> Add trendlines somehow?
 * Feature - Add chart with button (search tickers)
 
 ## Links
-* https://rosspi.github.io/gridstrap.js/
+
 * Widget: https://www.tradingview.com/widget/symbol-overview/
 * Originally found here (there's a more complex one): https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/?library=cloud-widget
 * How to set up trendline: https://stackoverflow.com/questions/50870167/tradingview-drawing
