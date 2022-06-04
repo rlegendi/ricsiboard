@@ -6,16 +6,11 @@ Some random charts.
 
 * License
 * Public URL
-* Format code, restructure (JS, css)
 * Get review - Zsolti? KissP?
 * Learn bootstrap -- HAHA!
 
-* Infra - Deploy with a click
-
 * Feature - Rightclick -> Add trendlines somehow?
 * Feature - Add chart with button (search tickers)
-
-* Fancy - Favico
 
 ## Links
 * https://rosspi.github.io/gridstrap.js/
@@ -32,11 +27,8 @@ Some random charts.
 
 -------------------------------------------------------------------
 
-file:///E:/007/work/ws_web/ricsiboard/index.html?CCY=FX_IDC:USDHUF%7C12M,FX_IDC:EURHUF%7C12M,FX_IDC:GBPHUF%7C12M,FX_IDC:CHFHUF%7C12M
+TEST LATER
+==========
 
-file:///E:/007/work/ws_web/ricsiboard/index.html?CCY=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M&Crypto=COINBASE:BTCUSD|12M&Crypto1=BINANCE:ETHUSDT|12M
-
-Base temlate
-- Minors? Majors? hu/xxx
-- Hu? OTP Richter
-- Tech?
+* HTTPS + copy to clipboard
+* Donate button lol
