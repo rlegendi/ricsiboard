@@ -6,12 +6,11 @@ Live at: https://ricsiboard.com
 
 ## TODO
 
-* License
 * Public URL
-* Get review - Zsolti? KissP?
-* Learn bootstrap -- HAHA!
+* Get review
 
 ### Later maybe
+
 * Feature - Rightclick -> Add trendlines somehow?
 * Feature - Add chart with button (search tickers)
 
@@ -19,6 +18,7 @@ Live at: https://ricsiboard.com
 
 * Widget: https://www.tradingview.com/widget/symbol-overview/
 * Originally found here (there's a more complex one): https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/?library=cloud-widget
+* Overlay: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
 * How to set up trendline: https://stackoverflow.com/questions/50870167/tradingview-drawing
     var order = widget.chart().createOrderLine()
       .setText("Buy Line")
@@ -26,12 +26,8 @@ Live at: https://ricsiboard.com
       .setLineStyle(0) 
       .setQuantity("221.235 USDT")
     order.setPrice(7000);
-* https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
 
--------------------------------------------------------------------
-
-TEST LATER
-==========
+## To be tested later
 
 * HTTPS + copy to clipboard
 * Donate button lol
