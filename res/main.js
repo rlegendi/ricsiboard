@@ -157,3 +157,50 @@ function moveDown(actTr) {
     parent.removeChild(actTr)
     parent.insertBefore(actTr, next.nextSibling)
 }
+
+function populateContentOnLoad() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+
+    if (!window.location.search) {
+        goToDefaultUrl()
+    }
+
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    let id = 1;
+    for (let [key, values] of Object.entries(params)) {
+        console.log(key, values);
+        const header = document.createElement("h1");
+        header.innerHTML = key;
+        $("#instrument-list").append(header);
+
+        const list = document.createElement("div");
+        list.classList.add("row", "row-cols-1", "row-cols-sm-2", "row-cols-md-3", "g-3");
+        $("#instrument-list").append(list);
+
+        const arr = values.split(",")
+        for (let i = 0; i < arr.length; i++) {
+            const viewId = "view" + id;
+            const fullTicker = arr[i];
+            const shortTicker = fullTicker.replaceAll(":", "-").substring(0, fullTicker.indexOf("|"));
+            let templateHtml = $("#chart-template").html();
+
+            templateHtml = templateHtml.replaceAll("${view_id}", viewId);
+            templateHtml = templateHtml.replaceAll("${ticker}", shortTicker);
+            templateHtml = templateHtml.replaceAll("${ticker_full}", fullTicker);
+
+            const div = document.createElement("div");
+            div.innerHTML = templateHtml;
+
+            list.append(div);
+            chartOf(fullTicker, viewId)
+            id = id + 1;
+        }
+    }
+
+    for (let [key, values] of Object.entries(params)) {
+        console.log(key, values);
+
+        addNewCategory(key, values)
+    }
+}
