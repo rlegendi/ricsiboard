@@ -9,6 +9,7 @@ Live at: https://ricsiboard.com
 * Public URL
 * Get review
 * Share button
+* Fix filtering for params (fbclid should be filtered out from charts, etc.)
 
 ### Later maybe
 

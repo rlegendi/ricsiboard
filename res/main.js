@@ -40,7 +40,7 @@ function shareBoardLink() {
     alert("Saved the shareable URL in your clipboard - feel free to share it!");
 }
 
-function addNewCategory(category, symbols) {
+function addNewDashboardConfigLine(category, symbols) {
     const table = document.getElementById("paramsTable");
     const tr = document.createElement("tr");
     table.append(tr);
@@ -86,8 +86,8 @@ function addNewCategory(category, symbols) {
     }
 }
 
-function addNewEmptyCategory() {
-    addNewCategory("", "")
+function addNewEmptyDashboardConfigLine() {
+    addNewDashboardConfigLine("", "")
 }
 
 function removeTableLine(actTr) {
@@ -158,15 +158,7 @@ function moveDown(actTr) {
     parent.insertBefore(actTr, next.nextSibling)
 }
 
-function populateContentOnLoad() {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-
-    if (!window.location.search) {
-        goToDefaultUrl()
-    }
-
-    const params = Object.fromEntries(urlSearchParams.entries());
-
+function displayCharts(params) {
     let id = 1;
     for (let [key, values] of Object.entries(params)) {
         console.log(key, values);
@@ -197,10 +189,25 @@ function populateContentOnLoad() {
             id = id + 1;
         }
     }
+}
 
+function populateDashboardConfigTable(params) {
     for (let [key, values] of Object.entries(params)) {
         console.log(key, values);
 
-        addNewCategory(key, values)
+        addNewDashboardConfigLine(key, values)
     }
+}
+
+function populateContentOnLoad() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+
+    if (!window.location.search) {
+        goToDefaultUrl()
+    }
+
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    displayCharts(params)
+    populateDashboardConfigTable(params)
 }
