@@ -8,6 +8,7 @@ Live at: https://ricsiboard.com
 
 * Public URL
 * Get review
+* Share button
 
 ### Later maybe
 
