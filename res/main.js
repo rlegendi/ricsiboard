@@ -34,6 +34,7 @@ function chartOf(fullTicker, containerId) {
     });
 }
 
+/** Works only over HTTPS, but redirect should solve that in CF. */
 function shareBoardLink() {
     navigator.clipboard.writeText(window.location.href);
 
@@ -50,14 +51,14 @@ function addNewDashboardConfigLine(category, symbols) {
     tdUpButton.innerHTML = "&#11165;"
     tdMove.append(tdUpButton)
     tdUpButton.onclick = function() {
-        moveUp(tr)
+        moveUpDashboardConfigLine(tr)
     }
 
     const tdDownButton = document.createElement("button")
     tdDownButton.innerHTML = "&#11167;"
     tdMove.append(tdDownButton)
     tdDownButton.onclick = function() {
-        moveDown(tr)
+        moveDownDashboardConfigLine(tr)
     }
 
     tr.append(tdMove)
@@ -82,21 +83,53 @@ function addNewDashboardConfigLine(category, symbols) {
     tdRemove.innerHTML = "x"
     tr.append(tdRemove)
     tdRemove.onclick = function() {
-        removeTableLine(tr)
+        removeDashboardConfigLine(tr)
     }
+}
+
+function moveUpDashboardConfigLine(actTr) {
+    const parent = actTr.parentNode
+    const prev = actTr.previousElementSibling
+
+    if (!prev.previousElementSibling) {
+        return
+    }
+
+    parent.removeChild(actTr)
+    parent.insertBefore(actTr, prev)
+}
+
+function moveDownDashboardConfigLine(actTr) {
+    const parent = actTr.parentNode
+    const next = actTr.nextSibling
+
+    if (!next) {
+        return
+    }
+
+    parent.removeChild(actTr)
+    parent.insertBefore(actTr, next.nextSibling)
 }
 
 function addNewEmptyDashboardConfigLine() {
     addNewDashboardConfigLine("", "")
 }
 
-function removeTableLine(actTr) {
+function removeDashboardConfigLine(actTr) {
     const table = document.getElementById("paramsTable");
     if (2 >= table.rows.length) {
         return
     }
 
     actTr.parentNode.removeChild(actTr)
+}
+
+function populateDashboardConfigTable(params) {
+    for (let [key, values] of Object.entries(params)) {
+        console.log(key, values);
+
+        addNewDashboardConfigLine(key, values)
+    }
 }
 
 function openNav() {
@@ -134,30 +167,6 @@ function goToDefaultUrl() {
     window.location.href = "?CCY%20-%20Hu=FX_IDC:USDHUF|12M,FX_IDC:EURHUF|12M,FX_IDC:GBPHUF|12M,FX_IDC:CHFHUF|12M,FX_IDC:PLNHUF|12M&Crypto=COINBASE:BTCUSD|12M,BINANCE:ETHUSDT|12M&Stocks%20-%20Hu=BER:OTP|12M,SWB:RIG2|12M&Stocks%20-%20Tech=NASDAQ:FB|12M,NYSE:EPAM|12M"
 }
 
-function moveUp(actTr) {
-    const parent = actTr.parentNode
-    const prev = actTr.previousElementSibling
-
-    if (!prev.previousElementSibling) {
-        return
-    }
-
-    parent.removeChild(actTr)
-    parent.insertBefore(actTr, prev)
-}
-
-function moveDown(actTr) {
-    const parent = actTr.parentNode
-    const next = actTr.nextSibling
-
-    if (!next) {
-        return
-    }
-
-    parent.removeChild(actTr)
-    parent.insertBefore(actTr, next.nextSibling)
-}
-
 function displayCharts(params) {
     let id = 1;
     for (let [key, values] of Object.entries(params)) {
@@ -188,14 +197,6 @@ function displayCharts(params) {
             chartOf(fullTicker, viewId)
             id = id + 1;
         }
-    }
-}
-
-function populateDashboardConfigTable(params) {
-    for (let [key, values] of Object.entries(params)) {
-        console.log(key, values);
-
-        addNewDashboardConfigLine(key, values)
     }
 }
 
