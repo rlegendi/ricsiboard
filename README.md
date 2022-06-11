@@ -6,9 +6,8 @@ Live at: https://ricsiboard.com
 
 ## TODO
 
-* Public URL
 * Get review
-* Share button
+* Share buttons (FB/Twitter/etc. etc.)
 * Fix filtering for params (fbclid should be filtered out from charts, etc.)
 
 ### Later maybe
@@ -31,5 +30,4 @@ Live at: https://ricsiboard.com
 
 ## To be tested later
 
-* HTTPS + copy to clipboard
 * Donate button lol
