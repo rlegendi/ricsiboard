@@ -31,3 +31,9 @@ Live at: https://ricsiboard.com
 ## To be tested later
 
 * Donate button lol
+
+## License
+Copyright (c) rlegendi
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
