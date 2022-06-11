@@ -46,89 +46,89 @@ function addNewDashboardConfigLine(category, symbols) {
     const tr = document.createElement("tr");
     table.append(tr);
 
-    const tdMove = document.createElement("td")
-    const tdUpButton = document.createElement("button")
+    const tdMove = document.createElement("td");
+    const tdUpButton = document.createElement("button");
     tdUpButton.innerHTML = "&#11165;"
-    tdMove.append(tdUpButton)
+    tdMove.append(tdUpButton);
     tdUpButton.onclick = function() {
-        moveUpDashboardConfigLine(tr)
+        moveUpDashboardConfigLine(tr);
     }
 
-    const tdDownButton = document.createElement("button")
+    const tdDownButton = document.createElement("button");
     tdDownButton.innerHTML = "&#11167;"
-    tdMove.append(tdDownButton)
+    tdMove.append(tdDownButton);
     tdDownButton.onclick = function() {
-        moveDownDashboardConfigLine(tr)
+        moveDownDashboardConfigLine(tr);
     }
 
-    tr.append(tdMove)
+    tr.append(tdMove);
 
-    const tdCategory = document.createElement("td")
-    const categoryTextField = document.createElement("input")
+    const tdCategory = document.createElement("td");
+    const categoryTextField = document.createElement("input");
     categoryTextField.setAttribute("type", "text");
-    categoryTextField.value = category
+    categoryTextField.value = category;
 
-    tr.append(tdCategory)
-    tdCategory.append(categoryTextField)
+    tr.append(tdCategory);
+    tdCategory.append(categoryTextField);
 
-    const tdValue = document.createElement("td")
-    const symbolsTextField = document.createElement("input")
+    const tdValue = document.createElement("td");
+    const symbolsTextField = document.createElement("input");
     symbolsTextField.setAttribute("type", "text");
-    symbolsTextField.value = symbols
-    symbolsTextField.size = 80
-    tr.append(tdValue)
-    tdValue.append(symbolsTextField)
+    symbolsTextField.value = symbols;
+    symbolsTextField.size = 80;
+    tr.append(tdValue);
+    tdValue.append(symbolsTextField);
 
-    const tdRemove = document.createElement("button")
-    tdRemove.innerHTML = "x"
-    tr.append(tdRemove)
+    const tdRemove = document.createElement("button");
+    tdRemove.innerHTML = "x";
+    tr.append(tdRemove);
     tdRemove.onclick = function() {
-        removeDashboardConfigLine(tr)
+        removeDashboardConfigLine(tr);
     }
 }
 
 function moveUpDashboardConfigLine(actTr) {
-    const parent = actTr.parentNode
-    const prev = actTr.previousElementSibling
+    const parent = actTr.parentNode;
+    const prev = actTr.previousElementSibling;
 
     if (!prev.previousElementSibling) {
-        return
+        return;
     }
 
-    parent.removeChild(actTr)
-    parent.insertBefore(actTr, prev)
+    parent.removeChild(actTr);
+    parent.insertBefore(actTr, prev);
 }
 
 function moveDownDashboardConfigLine(actTr) {
-    const parent = actTr.parentNode
-    const next = actTr.nextSibling
+    const parent = actTr.parentNode;
+    const next = actTr.nextSibling;
 
     if (!next) {
-        return
+        return;
     }
 
-    parent.removeChild(actTr)
-    parent.insertBefore(actTr, next.nextSibling)
+    parent.removeChild(actTr);
+    parent.insertBefore(actTr, next.nextSibling);
 }
 
 function addNewEmptyDashboardConfigLine() {
-    addNewDashboardConfigLine("", "")
+    addNewDashboardConfigLine("", "");
 }
 
 function removeDashboardConfigLine(actTr) {
     const table = document.getElementById("paramsTable");
     if (2 >= table.rows.length) {
-        return
+        return;
     }
 
-    actTr.parentNode.removeChild(actTr)
+    actTr.parentNode.removeChild(actTr);
 }
 
 function populateDashboardConfigTable(params) {
     for (let [key, values] of Object.entries(params)) {
         console.log(key, values);
 
-        addNewDashboardConfigLine(key, values)
+        addNewDashboardConfigLine(key, values);
     }
 }
 
@@ -140,7 +140,7 @@ function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
 
-function updateUrl() {
+function updateUrlBasedOnDashboardConfig() {
     const table = document.getElementById("paramsTable");
 
     let url = window.location.protocol + '//' + window.location.host + window.location.pathname + "?"
@@ -149,10 +149,6 @@ function updateUrl() {
     for (let i = 1, row; row = table.rows[i]; i++) {
         const name = row.cells[1].firstChild.value
         const value = row.cells[2].firstChild.value
-
-        if (!name || !value || name === "fbclid") {
-            continue
-        }
 
         if (first) first = false
         else url += "&"
@@ -200,15 +196,31 @@ function displayCharts(params) {
     }
 }
 
-function populateContentOnLoad() {
-    const urlSearchParams = new URLSearchParams(window.location.search);
+function getCleanedUpURLSearchParams(allUrlSearchParams) {
+    const ret = new URLSearchParams(allUrlSearchParams);
 
-    if (!window.location.search) {
-        goToDefaultUrl()
+    ret.delete("fbclid");
+    ret.delete("gclid");
+
+    allUrlSearchParams.forEach((value, key) => {
+        if (!key || !value) {
+            ret.delete(key);
+        }
+    });
+
+    return ret;
+}
+
+function populateContentOnLoad() {
+    const allUrlSearchParams = new URLSearchParams(window.location.search);
+    const cleanedUpUrlSearchParams = getCleanedUpURLSearchParams(allUrlSearchParams);
+    const params = Object.fromEntries(cleanedUpUrlSearchParams.entries());
+
+    const noParamsGiven = Object.keys(params).length == 0;
+    if (noParamsGiven) {
+        goToDefaultUrl();
     }
 
-    const params = Object.fromEntries(urlSearchParams.entries());
-
-    displayCharts(params)
-    populateDashboardConfigTable(params)
+    displayCharts(params);
+    populateDashboardConfigTable(params);
 }
