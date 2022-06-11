@@ -6,6 +6,7 @@ Live at: https://ricsiboard.com
 
 ## TODO
 
+* Publish repo - review if all materials can be shared in history
 * Get review
 * Share buttons (FB/Twitter/etc. etc.)
 * Fix filtering for params (fbclid should be filtered out from charts, etc.)
@@ -37,3 +38,13 @@ Copyright (c) rlegendi
 
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
+
+## For the review to discuss
+
+* ; or not to ;
+* Eliminate JQuery?
+* Global state or local state - params enough hidden hm?
+* More functional approach?
+* Add minimal tests? Any lightweight framework recently?
+
+
