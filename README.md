@@ -10,11 +10,14 @@ Live at: https://ricsiboard.com
 * Get review
 * Share buttons (FB/Twitter/etc. etc.)
 * Fix filtering for params (fbclid should be filtered out from charts, etc.)
+* Keywords for Google
 
 ### Later maybe
 
 * Feature - Rightclick -> Add trendlines somehow?
 * Feature - Add chart with button (search tickers)
+* Mobile - Params table is pretty much screwed up
+
 
 ## Links
 
