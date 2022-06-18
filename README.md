@@ -25,22 +25,18 @@ Live at: https://ricsiboard.com
 * Originally found here (there's a more complex one): https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/?library=cloud-widget
 * Overlay: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
 * How to set up trendline: https://stackoverflow.com/questions/50870167/tradingview-drawing
-    var order = widget.chart().createOrderLine()
-      .setText("Buy Line")
-      .setLineLength(3) 
-      .setLineStyle(0) 
-      .setQuantity("221.235 USDT")
-    order.setPrice(7000);
+	```
+	var order = widget.chart().createOrderLine()
+	  .setText("Buy Line")
+	  .setLineLength(3)
+	  .setLineStyle(0)
+	  .setQuantity("221.235 USDT")
+	order.setPrice(7000);
+	```
 
 ## To be tested later
 
-* Donate button lol
-
-## License
-Copyright (c) rlegendi
-
-This source code is licensed under the MIT license found in the
-LICENSE file in the root directory of this source tree.
+* Donate button :-)
 
 ## For the review to discuss
 
@@ -50,4 +46,9 @@ LICENSE file in the root directory of this source tree.
 * More functional approach?
 * Add minimal tests? Any lightweight framework recently?
 
+## License
+Copyright (c) rlegendi
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
 
