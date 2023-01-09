@@ -11,6 +11,7 @@ Live at: https://ricsiboard.com
 * Share buttons (FB/Twitter/etc. etc.)
 * Fix filtering for params (fbclid should be filtered out from charts, etc.)
 * Keywords for Google
+* Validate that there are no , and | characters within the paramsTable fields
 
 ### Later maybe
 
