@@ -74,6 +74,7 @@ function addNewDashboardConfigLine(category, symbols) {
     const tdValue = document.createElement("td");
     const symbolsTextField = document.createElement("input");
     symbolsTextField.setAttribute("type", "text");
+    symbolsTextField.setAttribute("class", "paramTableSymbolField")
     symbolsTextField.value = symbols;
     symbolsTextField.size = 80;
     tr.append(tdValue);
@@ -223,4 +224,32 @@ function populateContentOnLoad() {
 
     displayCharts(params);
     populateDashboardConfigTable(params);
+}
+
+function convertChartConfig(config, timeFrameToUse) {
+    const data = config.split(',');
+    for (var i = 0; i < data.length; ++i) {
+        const actValue = data[i];
+        data[i] = actValue.substring(0, actValue.indexOf('|')) + '|' + timeFrameToUse;
+    }
+
+    return data.join(',');
+}
+
+function updateAllTimeFrames() {
+    const symbolFields = document.getElementsByClassName('paramTableSymbolField');
+    const timeFrameToUse = document.getElementById("timeFramePeriod").value;
+
+    if (!timeFrameToUse) {
+        return;
+    }
+
+    for (var i = 0; i < symbolFields.length; i++) {
+        const actSymbolField = symbolFields.item(i);
+
+        const actValue = actSymbolField.value;
+        const newValue = convertChartConfig(actValue, timeFrameToUse);
+
+        actSymbolField.value = newValue;
+    }
 }
