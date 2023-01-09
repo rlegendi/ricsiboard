@@ -42,7 +42,20 @@ LICENSE file in the root directory of this source tree.
             <a class="sub" href="#" onclick="goToDefaultUrl()">Sample Board</a>
             <a class="sub" href="https://www.tradingview.com/" target="_blank">Find other symbols</a>
 
-            <br/><br/>
+            <p>
+                <button onclick="updateAllTimeFrames()">Set timeframes for all charts to</button> =>
+
+                <input list="sampleTimeFrames" id="timeFramePeriod" size="5">
+                <datalist id="sampleTimeFrames">
+                    <option value="1D">
+                    <option value="1M">
+                    <option value="3M">
+                    <option value="1Y">
+                    <option value="5Y">
+                    <option value="All">
+                </datalist>
+                </input>
+            </p>
 
             <p><b>Hint</b> As we do NOT store any info about you, the dashboard you put together is visible only to YOU! Yup, no cookies! Now we mention, you recognize there were no "Accept cookies" dialog huh? :D But, to make things convenient: the setup
                 is encoded in the actual link you are watching, so easy to bookmark and share as you wish.</p>
@@ -74,28 +87,28 @@ LICENSE file in the root directory of this source tree.
             </div>
         </div>
 
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center ">
-                <img src="res/logo.png" width="18" height="18" /> &nbsp;
-                <strong>Ricsiboard</strong>
-            </a>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center ">
+                    <img src="res/logo.png" width="18" height="18" /> &nbsp;
+                    <strong>Ricsiboard</strong>
+                </a>
 
-            <div class="d-flex align-items-center ">
-                <form action="https://www.paypal.com/donate" method="post" target="_top" class="me-4">
-                    <input type="hidden" name="cmd" value="_donations" />
-                    <input type="hidden" name="business" value="7LC3N9JYDPA5L" />
-                    <input type="hidden" name="item_name" value="Buy me a beer/new set of strings :-)" />
-                    <input type="hidden" name="currency_code" value="EUR" />
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                </form>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="d-flex align-items-center ">
+                    <form action="https://www.paypal.com/donate" method="post" target="_top" class="me-4">
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="business" value="7LC3N9JYDPA5L" />
+                        <input type="hidden" name="item_name" value="Buy me a beer/new set of strings :-)" />
+                        <input type="hidden" name="currency_code" value="EUR" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                    </form>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                </div>
             </div>
         </div>
-    </div>
     </header>
 
     <main>
@@ -149,4 +162,5 @@ LICENSE file in the root directory of this source tree.
         </div>
     </footer>
 </body>
+
 </html>
