@@ -30,7 +30,6 @@ LICENSE file in the root directory of this source tree.
 
 * Keywords for Google, SEO
 * Get review :-)
-* Fix default view (BET:...)
 * Validate that there are no , and | characters within the paramsTable category fields
 * Exclude tests from deploy
 * Add other settings such as: https://www.tradingview.com/widget/symbol-overview/
