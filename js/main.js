@@ -48,14 +48,14 @@ function addNewDashboardConfigLine(category, symbols) {
 
     const tdMove = document.createElement("td");
     const tdUpButton = document.createElement("button");
-    tdUpButton.innerHTML = "&#11165;"
+    tdUpButton.innerHTML = "<img src='pix/icon-up.png' width='20' height='20'/>"
     tdMove.append(tdUpButton);
     tdUpButton.onclick = function() {
         moveUpDashboardConfigLine(tr);
     }
 
     const tdDownButton = document.createElement("button");
-    tdDownButton.innerHTML = "&#11167;"
+    tdDownButton.innerHTML = "<img src='pix/icon-down.png' width='20' height='20'/>"
     tdMove.append(tdDownButton);
     tdDownButton.onclick = function() {
         moveDownDashboardConfigLine(tr);
