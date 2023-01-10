@@ -31,7 +31,6 @@ LICENSE file in the root directory of this source tree.
 * Keywords for Google, SEO
 * Get review :-)
 * Fix default view (BET:...)
-* Fix up/down buttons, as UTF chars don't work on many platforms (confirmed error on Android, Linux Chrome)
 * Validate that there are no , and | characters within the paramsTable category fields
 * Exclude tests from deploy
 * Add other settings such as: https://www.tradingview.com/widget/symbol-overview/
