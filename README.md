@@ -4,21 +4,12 @@ Your personalized trading dashboard for the morning coffee :-)
 
 Live at: https://ricsiboard.com
 
-## TODO
+## License
 
-* Publish repo - review if all materials can be shared in history
-* Get review
-* Share buttons (FB/Twitter/etc. etc.)
-* Fix filtering for params (fbclid should be filtered out from charts, etc.)
-* Keywords for Google
-* Validate that there are no , and | characters within the paramsTable fields
+Copyright (c) rlegendi
 
-### Later maybe
-
-* Feature - Rightclick -> Add trendlines somehow?
-* Feature - Add chart with button (search tickers)
-* Mobile - Params table is pretty much screwed up
-
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
 
 ## Links
 
@@ -35,21 +26,26 @@ Live at: https://ricsiboard.com
 	order.setPrice(7000);
 	```
 
-## To be tested later
+## Backlog
 
-* Donate button :-)
+* Keywords for Google, SEO
+* Get review :-)
+* Fix default view (BET:...)
+* Fix up/down buttons, as UTF chars don't work on many platforms (confirmed error on Android, Linux Chrome)
+* Validate that there are no , and | characters within the paramsTable category fields
+* Exclude tests from deploy
+* Add other settings such as: https://www.tradingview.com/widget/symbol-overview/
+  * Do we need consent dialog for saving this to localstorage or stg?
+
+### Later maybe
+
+* Feature - Rightclick -> Add trendlines somehow?
+* Feature - Add chart with button (search tickers)
+* Mobile - Params table is pretty much screwed up and unusable
 
 ## For the review to discuss
 
 * ; or not to ;
-* Eliminate JQuery?
+* Eliminate JQuery? Needs Bootstrap update, lot of work
 * Global state or local state - params enough hidden hm?
 * More functional approach?
-* Add minimal tests? Any lightweight framework recently?
-
-## License
-Copyright (c) rlegendi
-
-This source code is licensed under the MIT license found in the
-LICENSE file in the root directory of this source tree.
-
