@@ -12,12 +12,14 @@ LICENSE file in the root directory of this source tree.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ricsiboard - Your personal trading dashboard</title>
-    <meta name="description" content="Do you invest in stock/forex/crypto/ETF? Would you like to monitor how the price of these instruments change on a single, clean, customizable interface? Then Ricsiboard is for you.">
+    <meta name="description" content="Do you invest in stocks/forex/crypto/ETF? Would you like to see how the prices change on a single, clean, customizable interface? Then Ricsiboard is for you.">
     <meta name="robots" content="index, follow">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link ref="canonical" href="http://ricsiboard.com" />
 
     <link rel="icon" type="image/png" href="pix/favicon.ico" />
+    <meta name="thumbnail" content="pix/thumbnail.png">
+    <meta property="og:image" content="pix/thumbnail.png">
     <link rel="stylesheet" href="css/main.css" />
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -41,9 +43,11 @@ LICENSE file in the root directory of this source tree.
             </table>
             <button onclick="addNewEmptyDashboardConfigLine()">Add new category</button>
 
-            <a href="#" onclick="updateUrlBasedOnDashboardConfig()">Update board with config above</a>
-            <a class="sub" href="#" onclick="goToDefaultUrl()">Sample Board</a>
-            <a class="sub" href="https://www.tradingview.com/" target="_blank">Find other symbols</a>
+            <p>
+                <button onclick="updateUrlBasedOnDashboardConfig()">Update board with config above</button>
+                <button onclick="goToDefaultUrl()">Sample Board</button>
+                <button onclick="window.open('http://www.tradingview.com/','_blank')">Find other symbols</button>
+            </p>
 
             <p>
                 <button onclick="updateAllTimeFrames()">Set timeframes for all charts to</button> =>
@@ -67,7 +71,6 @@ LICENSE file in the root directory of this source tree.
 
             <p><b>Hint</b> If you messed up the table above - not an issue! Simply refresh the page, it'll reset everything to the original values when you previously loaded the page.</p>
         </div>
-
     </div>
 
     <header>
@@ -93,7 +96,7 @@ LICENSE file in the root directory of this source tree.
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center ">
-                    <img src="pix/logo.png" width="18" height="18" /> &nbsp;
+                    <img alt="Ricsiboard Logo" src="pix/logo.png" width="18" height="18" /> &nbsp;
                     <strong>Ricsiboard</strong>
                 </a>
 
