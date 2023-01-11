@@ -29,6 +29,7 @@ LICENSE file in the root directory of this source tree.
 ## Backlog
 
 * New page / FAQ
+* OG recommendations
 * Twitter feed widget?
 * Config page - make more consistent. Buttons vs. links ain't good
 * Get review :-)
