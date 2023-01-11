@@ -28,9 +28,9 @@ LICENSE file in the root directory of this source tree.
 
 ## Backlog
 
-* Keywords for Google, SEO
 * New page / FAQ
 * Twitter feed widget?
+* Config page - make more consistent. Buttons vs. links ain't good
 * Get review :-)
 * Validate that there are no , and | characters within the paramsTable category fields
 * Exclude tests from deploy
