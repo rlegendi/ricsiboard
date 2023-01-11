@@ -4,6 +4,8 @@ Your personalized trading dashboard for the morning coffee :-)
 
 Live at: https://ricsiboard.com
 
+![Thumbnail](pix/thumbnail.png)
+
 ## License
 
 Copyright (c) rlegendi
