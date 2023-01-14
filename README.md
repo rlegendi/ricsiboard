@@ -36,6 +36,7 @@ Pls use `dev` for experiments, and push/merge only stable code on `main`.
 
 ## Backlog
 
+* SNS notification to create a CDN invalidation
 * New page / FAQ
 * OG recommendations
 * Twitter feed widget?
