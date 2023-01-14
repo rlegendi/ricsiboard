@@ -13,6 +13,12 @@ Copyright (c) rlegendi
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 
+## Deploy
+
+It's automated through CodePipeline, triggered by new changes on the `main` branch.
+
+Pls use `dev` for experiments, and push/merge only stable code on `main`.
+
 ## Links
 
 * Widget: https://www.tradingview.com/widget/symbol-overview/
