@@ -14,6 +14,10 @@ Story
 Why to listen?
 
 	How you can utilize a pet project to learn
+	
+	Relevant for full stack
+	
+	Relevant about Cloud hosting stuff
 
 	How pet project fails / theprimaegen vid had good thoughts
 
