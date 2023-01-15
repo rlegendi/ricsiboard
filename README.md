@@ -36,11 +36,8 @@ Pls use `dev` for experiments, and push/merge only stable code on `main`.
 
 ## Backlog
 
-* SNS notification to create a CDN invalidation
 * New page / FAQ
-* OG recommendations
 * Twitter feed widget?
-* Config page - make more consistent. Buttons vs. links ain't good
 * Get review :-)
 * Validate that there are no , and | characters within the paramsTable category fields
 * Exclude tests from deploy
