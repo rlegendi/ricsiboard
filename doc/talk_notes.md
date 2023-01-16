@@ -8,6 +8,8 @@ Prep
 
 - check Learning week presentation if I can use some slides
 
+- Broadcast in JS org - Erik, Dudi?
+
 Story
 =====
 
