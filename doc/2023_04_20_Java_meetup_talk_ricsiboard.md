@@ -486,3 +486,7 @@ Tools I used
 
 	https://github.com/ikatyang/emoji-cheat-sheet
 
+Feedback
+=====
+
+Create a backup slide about CDN, as not everyone was familiar with the concept
